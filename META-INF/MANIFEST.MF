@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: mygourmet04
+Bundle-SymbolicName: mygourmet04
+Bundle-Version: 1.0.0.qualifier
+Export-Package: at.irian.jsfatwork.gui.jsf,
+ at.irian.jsfatwork.gui.page

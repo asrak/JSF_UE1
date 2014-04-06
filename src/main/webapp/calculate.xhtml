@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<title>Rechner - Calculate</title>
+	</head>
+	<body>
+		<h1><h:outputText value="Rechner"/></h1>
+		<h2><h:outputText value="Calculate"/></h2>
+		<h:messages showDetail="true" showSummary="false"/>
+		<h:form id="form">
+		<h:panelGrid id="grid" columns="2">
+			<h:outputLabel value="First Int:" for="a"/>
+			<h:inputText id="a" value="#{rechner.a}"
+					required="true">
+					<f:validator validatorId="CalculatorValidator" />
+			</h:inputText>
+			<h:outputLabel value="Second Int:" for="b"/>
+			<h:inputText id="b" value="#{rechner.b}"
+					required="true">
+					<f:validator validatorId="CalculatorValidator" />
+			</h:inputText>
+			<h:outputLabel value="Birthdate:" for="birthDate"/>
+			<h:inputText id="birthDate" value="#{rechner.birthDate}" required="true">
+					<f:convertDateTime pattern="dd/M/yyyy" />
+					<f:validator validatorId="dateRangeValidator" />
+			</h:inputText>
+			<br />
+			<h:outputText id="result" value="#{rechner.result}" />
+		</h:panelGrid>
+		<h:selectOneRadio value="#{rechner.op}">
+   			<f:selectItem itemValue="Addition" itemLabel="Addition" />
+   			<f:selectItem itemValue="Subtraktion" itemLabel="Subtraktion" />
+   			<f:selectItem itemValue="Multiplikation" itemLabel="Multiplikation" />
+   			<f:selectItem itemValue="Division" itemLabel="Division" />
+		</h:selectOneRadio>
+		<h:commandButton id="calc" action="#{rechner.rechnen}" value="Rechnen"/>
+		<h:commandButton id="cancel" value="Cancel"
+                         action="/cancelled.xhtml" immediate="true"/>
+		</h:form>
+	</body>
+</html>
